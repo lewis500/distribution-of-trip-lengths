@@ -132,7 +132,7 @@ If every traveler satisfying (\ref{eq:v-epsilon}) does drive, then, by Little's 
 \end{equation}
 This is the ``circulation demanded'' and is equal to the total mass above $D$ in the figure, weighted by the $l$'s. Note that even though the demand of an individual traveler---from the perspective of a toll authority who cannot measure $\varepsilon_i$---is probabilistic, the \emph{aggregate} circulation demanded, $q_d$, is deterministic. Also, distinguish $q_d$ from the \emph{arrival} flow demanded:
 \begin{equation}\label{eq:a_d}
-	a_d(p) := \lambda \int_{0}^{\infty} \left( \int_{lp}^{\infty} f(\ve,l)d\ve \right) dl \,\, \textnormal{(veh/lane-km/min)},
+	a_d(p) := \lambda \int_{0}^{\infty} \int_{lp}^{\infty} f(\ve,l)d\ve dl \,\, \textnormal{(veh/lane-km/min)},
 \end{equation}
 which is not weighted by trip lengths.
 
@@ -351,7 +351,9 @@ where $a$ is the arrival flow.
 \subsection{Results}
 \label{ssec:results}
 
-A computer program was used to numerically calculate (i) the untolled UE; (ii) the equilibrium with TSS-maximizing access tolls; and (iii) the social optimum along with the distance toll that decentralizes it. The MFD parameters were chosen to resemble the famous Yokohama experiment that produced the original MFD result in \citet{Geroliminis2008}: $k_0 = 55$ veh/lane-km and $p_f=2.2$ min/km (27.7 km/hr).
+A computer program was used to numerically calculate (i) the untolled UE; (ii) the equilibrium with TSS-maximizing access tolls; and (iii) the social optimum along with the distance toll that decentralizes it.\footnote{The code for the simulation is written in the open-source \emph{Julia} language. It is documented with instructions on how to create the table and plots and can be found at \emph{https://github.com/lewis500/distribution-of-trip-lengths}.}
+
+The MFD parameters were chosen to resemble the famous Yokohama experiment that produced the original MFD result in \citet{Geroliminis2008}: $k_0 = 55$ veh/lane-km and $p_f=2.2$ min/km (27.7 km/hr).
 
 \begin{figure}
 	% \centering
@@ -402,7 +404,7 @@ In this example, the access toll has been handicapped by the positive correlatio
 \section{Conclusion}
 \label{sec:conclusion}
 
-This paper has presented a static model of traffic into a downtown with an MFD, in which commuters with varying trip lengths and benefits from driving decide between driving and a zero-utility outside option. An application of Little's Law allows the user equilibrium to be derived from curves in pace/circulation space. Theory shows that an access toll cannot raise total social surplus as much as a distance toll (except in the special cases where demand is deterministic or trip lengths invariant), because it allows and even invites some long, low-value car trips while discouraging certain short, high-value car trips. The distance toll, by contrast, is able to decentralize the socially-optimal split of traffic between drivers and non-drivers.
+This paper has presented a static model of traffic into a downtown with an MFD, in which commuters with varying trip lengths and benefits from driving decide between driving and a zero-utility outside option. An application of Little's Law allows the user equilibrium to be derived from curves in pace/circulation space. Theory shows that an access toll cannot raise total social surplus as much as a distance toll (except in the special cases where demand is deterministic or trip lengths invariant), because it allows and even invites some long, low-value car trips while discouraging certain short, high-value car trips. The distance toll, by contrast, is able to decentralize the social optimum.
 
 It is easy to imagine promising extensions to the model. One would involve letting the value of time vary among travelers. While the random benefit goes part of the way towards realistic heterogeneity, variation in value of travel time savings would go even further. \citet{Meng2012} have already solved for optimal distance tolls in a network model where the value of time varies continuously over the population.
 

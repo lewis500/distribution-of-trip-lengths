@@ -40,6 +40,7 @@ Equilibrium = Tuple{Float64, Float64, Float64}
 # pk and qk are physical functions used in our calculations. pk is p(k) in the paper. qk is q(k) in the paper. these are the mfd functions
 pk(w::World, k::Float64)::Float64 = w.pf*exp(.5(k/w.k0)^2)
 qk(w::World, k::Float64)::Float64 = k/pk(w,k)
+
 # X() is as defined as in the paper: the disutility of a car trip when pace is p, trip length is l and the given tolls
 X(p::Float64,l::Float64;τt::Float64=0.,τa::Float64=0.)::Float64 = (p+τa)*l + τt
 
