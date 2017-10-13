@@ -6,3 +6,4 @@
 *.spl
 *.synctex.gz
 *.fls
+.DS_Store
